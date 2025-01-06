@@ -45,7 +45,7 @@ tfidf_matrix = tfidf.fit_transform(data['Ingredients'])
 
 # 4. KNN Model
 # Melatih model KNN untuk pencarian tetangga terdekat
-knn = NearestNeighbors(n_neighbors=5, metric='cosine')
+knn = NearestNeighbors(n_neighbors=10, metric='cosine')
 knn.fit(tfidf_matrix)
 
 # 5. Pemrosesan Input Pengguna
