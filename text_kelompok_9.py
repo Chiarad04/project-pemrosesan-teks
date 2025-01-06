@@ -90,13 +90,13 @@ st.markdown(
 
 # Judul dan Input di kiri
 st.markdown('<div class="left-container">', unsafe_allow_html=True)
-st.title("Rekomendasi Resep Makanan")
-user_input = st.text_input("Masukkan bahan yang kamu punya (pisahkan dengan koma):")
-if st.button("Cari Rekomendasi"):
+st.title("Food Recipe Recommendations")
+user_input = st.text_input("fill with your ingredients (separated by commas):")
+if st.button("Find Recommendations"):
     if user_input.strip():
         st.session_state.user_input = user_input  # Simpan input pengguna di session state
     else:
-        st.warning("Masukkan bahan terlebih dahulu!")
+        st.warning("Fill The Ingredients")
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Menampilkan hasil rekomendasi jika ada
@@ -104,7 +104,7 @@ if 'user_input' in st.session_state:
     user_input = st.session_state.user_input
     results = knn_recommend(user_input)
     
-    st.header("Hasil Rekomendasi")
+    st.header("Recommendations")
     for index, row in results.iterrows():
         # Menentukan path folder gambar secara eksplisit
         image_folder = os.path.join(os.getcwd(), 'Food Images')
